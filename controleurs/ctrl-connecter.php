@@ -46,7 +46,7 @@
 			$journal = $_SERVER['REMOTE_ADDR']." ".date("Y-M-d:H:i:s")." ".$_SESSION['nom']." ".$_SERVER['HTTP_USER_AGENT']." "."Connexion Nok\n" ;
 			fwrite($lf, $journal);
 			
-			header( 'Location: ../vues/vue-connexion.php?echec=1' ) ;
+			header( 'Location: ../index.php?echec=1' ) ;
 
 		}
 	}
@@ -55,7 +55,7 @@
 		$journal = $_SERVER['REMOTE_ADDR']." ".date("Y-M-d:H:i:s")." ".$_SESSION['nom']." ".$_SERVER['HTTP_USER_AGENT']." "."Connexion Nok\n" ;
 		fwrite($lf, $journal);
 		
-		header( 'Location: ../vues/vue-connexion.php?echec=0' ) ;
+		header( 'Location: ../index.php?echec=0' ) ;
 
 	}	
 
