@@ -14,8 +14,7 @@
         die();
     }
     
-    $requete = $connection->query('SELECT numero, date_et_heure_programmees, theme FROM Ateliers WHERE responsable = ' . $_SESSION['numero']);
-    
+    $requete = $connection->query('SELECT numero, date_et_heure_programmees, theme FROM Atelier WHERE responsable = ' . $_SESSION['numero']);
 ?>
 
 <!DOCTYPE html>
@@ -45,23 +44,25 @@
     <div class="col-sm">
     	<h1 class="text-center">Liste des Ateliers</h1>
     	<div class="d-grid gap-2 col-6 mx-auto">
-            <table style="border: solid; margin-right: auto; margin-left: auto">
-            <tr style="background-color: #333; color: #fff;">
+            <table>
+            <tr>
                 <th style="border: 1px solid #333">Numéro</th>
                 <th style="border: 1px solid #333">Horaire</th>
                 <th style="border: 1px solid #333">Thème</th>
+                <th style="border: 1px solid #333"> </th>
             </tr>
-            <?php while($unAtelier = $reponse->fetch()){ ?>
+            <?php while($unAtelier = $requete->fetch()){ ?>
             <tr>
-                <td style="border: 1px solid #333;text-align: center;"><?php echo $unAtelier['numero'] ?></td>
-                <td style="border: 1px solid #333;text-align: center;"><?php echo $unAtelier['date_et_heure_programmees'] ?></td>
-                <td style="border: 1px solid #333;text-align: center;"><?php echo $unAtelier['theme'] ?></td>
+                <td style="border: 1px solid #333;text-align: center;"><?php echo $unAtelier[0] ?></td>
+                <td style="border: 1px solid #333;text-align: center;"><?php echo $unAtelier[1] ?></td>
+                <td style="border: 1px solid #333;text-align: center;"><?php echo $unAtelier[2] ?></td>
+                <td style="border: 1px solid #333;text-align: center;"><button type="button" class="btn btn-outline-primary" onclick="location.href='vue-liste-stagiaires.php'" onclick="<?php $_SESSION['atelier'] = $unAtelier['0'] ; ?>">Liste Stagiaires</button></td>
             </tr>
             <?php } ?>
+            </table>
     	</div>
 	</div>
 	
 </body>
-
 
 </html>
