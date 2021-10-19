@@ -6,51 +6,44 @@
 	
 	try {
 
-		$bd = new PDO(
-						'mysql:host=localhost;dbname=sbateliers' ,
-						'sanayabio' ,
-						'sb2021'
-			) ;
-			
-		$sql = 'select * '
-			 . 'from Responsable_Ateliers '
-			 . 'where nom_de_connexion = :login '
-			 . 'and mot_de_passe = :mdp' ;
-			 
-		$st = $bd -> prepare( $sql ) ;
-		
-		$st -> execute( array( 
-								':login' => $login ,
-								':mdp' => $mdp 
-						) 
-					) ;
-		$resultat = $st -> fetchall() ;
-			
-		unset( $bd ) ;
-		
-		if( count( $resultat ) == 1 ) {
-			session_start() ;
-			$_SESSION['numero'] = $resultat[0]['numero'] ;
-			$_SESSION['nom'] = $resultat[0]['nom'] ;
-			$_SESSION['prenom'] = $resultat[0]['prenom'] ;
-
-			$_SESSION[ 'login' ] = $login ;
-			
-			$journal = $_SERVER['REMOTE_ADDR']." ".date("Y-M-d:H:i:s")." ".$_SESSION['nom']." ".$_SERVER['HTTP_USER_AGENT']." "."Connexion Ok\n" ;
-			fwrite($lf, $journal);
-
-			header( 'Location: ../vues/vue-liste-ateliers.php' ) ;
+		try{
+			$dbName = 'sbateliers';
+			$host = 'localhost';
+			$utilisateur = 'sanayabio';
+			$motDePasse = 'sb2021';
+			$port = '3306';
+			$dns = 'mysql:host='.$host.';dbname='.$dbName.';port='.$port;
+			$connection = new PDO( $dns, $utilisateur, $motDePasse);
+		} catch (Exception $e) {
+			echo "connection failed : " . $e;
+			die();
 		}
-		else {
+		$requete = $connection->query("SELECT numero, nom_de_connexion, AES_DECRYPT(nom,SHA2('password',512)) AS nom, AES_DECRYPT(prenom,SHA2('password',512)) AS prenom, mot_de_passe FROM Responsable_Ateliers");
+		$responsable = $requete -> fetchAll();
 
-			$journal = $_SERVER['REMOTE_ADDR']." ".date("Y-M-d:H:i:s")." ".$_SESSION['nom']." ".$_SERVER['HTTP_USER_AGENT']." "."Connexion Nok\n" ;
-			fwrite($lf, $journal);
-			
-			header( 'Location: ../index.php?echec=1' ) ;
+		foreach($responsable as $unResponsable){
+			if($unResponsable['nom_de_connexion'] == $login){
+				if(password_verify($mdp,$unResponsable['mot_de_passe'])){
+					session_start();
+					$_SESSION['numero'] = $unResponsable['numero'] ;
+					$_SESSION['nom'] = $unResponsable['nom'] ;
+					$_SESSION['prenom'] = $unResponsable['prenom'] ;
+					$_SESSION[ 'login' ] = $login ;
+				
+					$journal = $_SERVER['REMOTE_ADDR']." ".date("Y-M-d:H:i:s")." ".$_SESSION['nom']." ".$_SERVER['HTTP_USER_AGENT']." "."Connexion Ok\n" ;
+					fwrite($lf, $journal);
 
+					header( 'Location: ../vues/vue-liste-ateliers.php' ) ;
+					exit;
+				}
+			}
 		}
-	}
-	catch( PDOException $e ){
+		$journal = $_SERVER['REMOTE_ADDR']." ".date("Y-M-d:H:i:s")." ".$_SESSION['nom']." ".$_SERVER['HTTP_USER_AGENT']." "."Connexion Nok\n" ;
+		fwrite($lf, $journal);
+		header( 'Location: ../index.php?echec=1' );
+		
+		
+	}catch( PDOException $e ){
 
 		$journal = $_SERVER['REMOTE_ADDR']." ".date("Y-M-d:H:i:s")." ".$_SESSION['nom']." ".$_SERVER['HTTP_USER_AGENT']." "."Connexion Nok\n" ;
 		fwrite($lf, $journal);

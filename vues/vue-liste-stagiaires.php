@@ -14,7 +14,7 @@
         die();
     }
     
-    $requete = $connection->query('SELECT numero, nom, prenom, ville FROM Client INNER JOIN Participation ON Client.numero = Participation.client WHERE Participation.atelier = ' . $_SESSION['atelier']);
+    $requete = $connection->query("SELECT numero, AES_DECRYPT(nom,SHA2('password',512)) AS nom, AES_DECRYPT(prenom,SHA2('password',512)) AS prenom, ville FROM Client INNER JOIN Participation ON Client.numero = Participation.client WHERE Participation.atelier = " . $_SESSION['atelier']);
 ?>
 
 <!DOCTYPE html>
