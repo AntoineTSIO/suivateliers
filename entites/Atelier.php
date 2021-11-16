@@ -17,19 +17,11 @@ class Atelier {
         $this->theme = $theme ;
     }
 
-    /**
-     * Get the value of numero
-     */ 
     public function getNumero()
     {
         return $this->numero;
     }
 
-    /**
-     * Set the value of numero
-     *
-     * @return  self
-     */ 
     public function setNumero($numero)
     {
         $this->numero = $numero;
@@ -37,19 +29,11 @@ class Atelier {
         return $this;
     }
 
-    /**
-     * Get the value of dateEnregistrement
-     */ 
     public function getDateEnregistrement()
     {
         return $this->dateEnregistrement;
     }
 
-    /**
-     * Set the value of dateEnregistrement
-     *
-     * @return  self
-     */ 
     public function setDateEnregistrement($dateEnregistrement)
     {
         $this->dateEnregistrement = $dateEnregistrement;
@@ -57,19 +41,11 @@ class Atelier {
         return $this;
     }
 
-    /**
-     * Get the value of dateHeureProgrammee
-     */ 
     public function getDateHeureProgrammee()
     {
         return $this->dateHeureProgrammee;
     }
 
-    /**
-     * Set the value of dateHeureProgrammee
-     *
-     * @return  self
-     */ 
     public function setDateHeureProgrammee($dateHeureProgrammee)
     {
         $this->dateHeureProgrammee = $dateHeureProgrammee;
@@ -77,19 +53,11 @@ class Atelier {
         return $this;
     }
 
-    /**
-     * Get the value of duree
-     */ 
     public function getDuree()
     {
         return $this->duree;
     }
 
-    /**
-     * Set the value of duree
-     *
-     * @return  self
-     */ 
     public function setDuree($duree)
     {
         $this->duree = $duree;
@@ -97,19 +65,11 @@ class Atelier {
         return $this;
     }
 
-    /**
-     * Get the value of nbPlaces
-     */ 
     public function getNbPlaces()
     {
         return $this->nbPlaces;
     }
 
-    /**
-     * Set the value of nbPlaces
-     *
-     * @return  self
-     */ 
     public function setNbPlaces($nbPlaces)
     {
         $this->nbPlaces = $nbPlaces;
@@ -117,19 +77,11 @@ class Atelier {
         return $this;
     }
 
-    /**
-     * Get the value of theme
-     */ 
     public function getTheme()
     {
         return $this->theme;
     }
 
-    /**
-     * Set the value of theme
-     *
-     * @return  self
-     */ 
     public function setTheme($theme)
     {
         $this->theme = $theme;

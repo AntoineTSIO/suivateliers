@@ -15,19 +15,11 @@ class ResponsableAtelierTest {
         $this->mdp = $mdp ;
     }
 
-    /**
-     * Get the value of numero
-     */ 
     public function getNumero()
     {
         return $this->numero;
     }
 
-    /**
-     * Set the value of numero
-     *
-     * @return  self
-     */ 
     public function setNumero($numero)
     {
         $this->numero = $numero;
@@ -35,19 +27,11 @@ class ResponsableAtelierTest {
         return $this;
     }
 
-    /**
-     * Get the value of nomConnexion
-     */ 
     public function getNomConnexion()
     {
         return $this->nomConnexion;
     }
 
-    /**
-     * Set the value of nomConnexion
-     *
-     * @return  self
-     */ 
     public function setNomConnexion($nomConnexion)
     {
         $this->nomConnexion = $nomConnexion;
@@ -55,19 +39,11 @@ class ResponsableAtelierTest {
         return $this;
     }
 
-    /**
-     * Get the value of nom
-     */ 
     public function getNom()
     {
         return $this->nom;
     }
 
-    /**
-     * Set the value of nom
-     *
-     * @return  self
-     */ 
     public function setNom($nom)
     {
         $this->nom = $nom;
@@ -75,19 +51,11 @@ class ResponsableAtelierTest {
         return $this;
     }
 
-    /**
-     * Get the value of prenom
-     */ 
     public function getPrenom()
     {
         return $this->prenom;
     }
 
-    /**
-     * Set the value of prenom
-     *
-     * @return  self
-     */ 
     public function setPrenom($prenom)
     {
         $this->prenom = $prenom;
@@ -95,19 +63,11 @@ class ResponsableAtelierTest {
         return $this;
     }
 
-    /**
-     * Get the value of mdp
-     */ 
     public function getMdp()
     {
         return $this->mdp;
     }
 
-    /**
-     * Set the value of mdp
-     *
-     * @return  self
-     */ 
     public function setMdp($mdp)
     {
         $this->mdp = $mdp;
