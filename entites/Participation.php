@@ -1,7 +1,12 @@
 <?php
 
 class Participation {
-    private $dateInscription ;
+    private DateTime $dateInscription ;
+
+    public function __construct($dateInscription)
+    {
+        $this->dateInscription = $dateInscription ;
+    }
 
     /**
      * Get the value of dateInscription

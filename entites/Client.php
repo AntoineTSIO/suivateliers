@@ -1,16 +1,16 @@
 <?php
 
 class Client {
-    private $numero ;
-    private $civilite ;
-    private $nom ;
-    private $prenom ; 
-    private $dateDeNaissance ;
-    private $adresseElectronique ;
-    private $mdp ;
-    private $adressePostale ;
-    private $codePostal ;
-    private $numTelephone ;
+    private int $numero ;
+    private String $civilite ;
+    private String $nom ;
+    private String $prenom ; 
+    private DateTime $dateDeNaissance ;
+    private String $adresseElectronique ;
+    private String $mdp ;
+    private String $adressePostale ;
+    private String $codePostal ;
+    private String $numTelephone ;
 
     
 

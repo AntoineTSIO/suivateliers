@@ -1,11 +1,11 @@
 <?php
 
 class ResponsableAtelier {
-    private $numero ;
-    private $nomConnexion ;
-    private $nom ;
-    private $prenom ;
-    private $mdp ;
+    private int $numero ;
+    private String $nomConnexion ;
+    private String $nom ;
+    private String $prenom ;
+    private String $mdp ;
 
     public function __construct( $numero , $nomConnexion , $nom , $prenom , $mdp ){
         $this->numero = $numero ;
@@ -14,13 +14,6 @@ class ResponsableAtelier {
         $this->prenom = $prenom ;
         $this->mdp = $mdp ;
     }
-
-    public function progAtelier ( $atelier ){
-        
-    }
-
-    
-
 
     /**
      * Get the value of numero

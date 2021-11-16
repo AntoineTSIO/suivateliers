@@ -1,12 +1,12 @@
 <?php
 
 class Atelier {
-    private $numero ;
-    private $dateEnregistrement ;
-    private $dateHeureProgrammee ;
-    private $duree ;
-    private $nbPlaces ;
-    private $theme ;
+    private int $numero ;
+    private DateTime $dateEnregistrement ;
+    private DateTime $dateHeureProgrammee ;
+    private DateTime $duree ;
+    private int $nbPlaces ;
+    private String $theme ;
 
     public function __construct( $numero , $dateEnregistrement , $dateHeureProgrammee , $duree , $nbPlaces , $theme ){
         $this->numero = $numero ;
