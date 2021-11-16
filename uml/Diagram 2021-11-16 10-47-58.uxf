@@ -1,0 +1,43 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Client
+--
+</help_text><element><id>UMLClass</id><coordinates><x>8</x><y>400</y><w>180</w><h>240</h></coordinates><panel_attributes>Client
+--
+_- numero : int_
+- civilite : String
+- nom : String
+- prenom : String
+- date_de_naissance : Date
+- adresse_electronique : String
+- mot_de_passe : String
+- adresse_postale : String
+- code_postal : String
+- numero_de_telephone : Binary
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>28</x><y>170</y><w>160</w><h>150</h></coordinates><panel_attributes>Responsable_Ateliers
+--
+_- numero : int_
+- nom_de_connexion : String
+- nom : String
+- prenom : String
+- mot_de_passe : String
+--
++ prgAtelier (Atelier) : boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>438</x><y>150</y><w>230</w><h>160</h></coordinates><panel_attributes>Atelier
+--
+_- numero : int_
+- date_enregistrement : Date
+- date_et_heure_programmees : Datetime
+- duree : Time
+- nombre_de_places : int
+- theme : String
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>438</x><y>610</y><w>160</w><h>90</h></coordinates><panel_attributes>Participation
+--
+_- date_inscription : Date_
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>178</x><y>300</y><w>400</w><h>270</h></coordinates><panel_attributes>lt=-
+m1=*
+m2=*</panel_attributes><additional_attributes>10;240;380;240;380;10</additional_attributes></element><element><id>Relation</id><coordinates><x>180</x><y>230</y><w>280</w><h>50</h></coordinates><panel_attributes>lt=-
+- atelier
+- responsable
+m2=1
+m1=*</panel_attributes><additional_attributes>260;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>500</x><y>530</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element></diagram>
